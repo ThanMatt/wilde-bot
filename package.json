@@ -5,7 +5,10 @@
   "author": "Thanmatt <aethanilagan@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start:dev": "nodemon --exec babel-node src/index.js"
+    "start:dev": "nodemon --exec babel-node src/index.js",
+    "start": "node build/index.js",
+    "build": "babel src -d build",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",

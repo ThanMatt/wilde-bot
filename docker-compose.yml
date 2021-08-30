@@ -1,6 +1,6 @@
 version: '2'
 services:
-  app:
+  sircon-bot: &sircon-bot
     build: .
     env_file:
       - .env.development
