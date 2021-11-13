@@ -5,14 +5,9 @@ const guildSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  admins: [
-    {
-      userId: {
-        type: String,
-        required: true
-      }
-    }
-  ]
+  chosenTeam: {
+    type: String
+  }
 })
 
 const Guild = mongoose.model('Guild', guildSchema)
