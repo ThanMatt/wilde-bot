@@ -6,7 +6,7 @@ import fs from 'fs'
 import Guild from './models/Guild'
 
 const commands = []
-mongoose.connect('mongodb://db:27017/sircon-bot')
+mongoose.connect('mongodb://db:27017/wilde-bot')
 mongoose.connection.once('open', () => console.log('MongoDB connection: Success'))
 const commandFiles = fs.readdirSync('./src/commands').filter((file) => file.endsWith('.js'))
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] })
@@ -23,7 +23,6 @@ client.once('ready', () => {
 })
 
 client.on('interactionCreate', async (interaction) => {
-  console.log(interaction)
   if (!interaction.isCommand()) return
 
   const command = client.commands.get(interaction.commandName)
@@ -40,7 +39,6 @@ client.on('interactionCreate', async (interaction) => {
 const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_BOT_TOKEN)
 const main = async (guildId) => {
   try {
-    console.log(process.env.DISCORD_CLIENT_ID)
     await rest.put(Routes.applicationGuildCommands(process.env.DISCORD_CLIENT_ID, guildId), {
       body: commands
     })

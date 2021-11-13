@@ -1,11 +1,11 @@
 version: '2'
 services:
-  sircon-bot: &sircon-bot
+  wilde-bot: &wilde-bot
     build: .
     env_file:
       - .env.development
     volumes:
-      - .:/usr/sircon-bot
+      - .:/usr/wildebot-bot
     ports:
       - 4000:4000
     command: yarn run start:dev
