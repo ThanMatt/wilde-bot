@@ -1,1 +1,1 @@
-export {default as buildCommand} from './buildCommand'
+export { default as buildCommand } from './buildCommand'
